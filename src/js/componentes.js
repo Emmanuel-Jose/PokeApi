@@ -7,18 +7,32 @@ const btnSearch        = document.querySelector( 'button' );
 
 // Events
 const events = () => {
-
-    btnSearch.addEventListener( 'click',  async () => {
-
-        //made the request for the pokemon searched
-
-        const searchInputValue = searchBar.value;
-        console.log( searchInputValue );
-        
-        drawPokemon( await getPokemon( searchInputValue ) );
-        
     
-    });
+    // when we click the button, call the function getSearchedPokemon if there's a value
+    btnSearch.addEventListener( 'click', () => (searchBar.value.length > 0) ? getSearchedPokemon() : '' );
+
+    // when we click enter, call the functions getSearchedPokemon if there's a value
+    searchBar.addEventListener( 'keyup', event => {
+        
+        if( event.keyCode === 13 && searchBar.value.length > 0 ) {
+
+            getSearchedPokemon()
+
+        }
+
+    })
+
+}
+
+const getSearchedPokemon = async () => {
+
+    // get the pokemon's name and made the request for the name
+    // and pass the pokemon to the drawPokemon function to show it in the html
+
+    const searchedValueInput = searchBar.value;
+    // console.log( searchedValueInput );
+
+    drawPokemon( await getPokemon( searchedValueInput ) );
 
 }
 
@@ -41,8 +55,8 @@ const drawPokemon = ( pokemon ) => {
 
     pokemonContainer.append( pokemonName );
     
-    console.log( pokemon );
-    console.log( pokemon.sprites.front_default );
+    // console.log( pokemon );
+    // console.log( pokemon.sprites.front_default );
 
 }
 
