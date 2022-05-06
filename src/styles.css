@@ -8,6 +8,7 @@
 
 body{
     font-family: monospace;
+    font-size: 15px;
 }
 
 
@@ -27,29 +28,38 @@ body{
 
 article{
     /* background-color: red; */
-    width: 50%;
+    width: 100%;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .search-bar{
-    width: 50%;
-    height: 25px;
+    width: 400px;
+    height: 100%;
     border-radius: 5px 0 0 5px;
     border: none;
     outline: none;
-    padding: 0 0 0 10px;
+    padding: 0 10px 0 10px;
+    font-size: 1.1em;
 }
 
 button{
     border-radius: 0 5px 5px 0;
     height: 100%;
-    width: 15%;
+    width: 120px;
     border: none;
     background-color: #0d023a;
     color: white;
     border: 1px solid white;
+    font-size: 1.1em;
+    cursor: pointer;
+    filter: opacity(100%);
+}
+
+button:hover{
+    filter: opacity(60%);
 }
 
 
@@ -63,5 +73,30 @@ button{
     align-items: center;
     gap: 5px;
     color: white;
+    font-size: 0.8em;
 }
 
+
+/* Movile */
+
+@media only screen and (max-width: 600px){
+
+    body{
+        font-size: 12px;
+    }
+
+    article{
+        height: 35px;
+    }
+
+    .search-bar{
+        width: 200px;
+    }
+
+    button{
+        width: 70px;
+        filter: opacity(100%);
+    }
+
+
+}
