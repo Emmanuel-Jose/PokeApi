@@ -29,7 +29,7 @@ const getSearchedPokemon = async () => {
     // get the pokemon's name and made the request for the name
     // and pass the pokemon to the drawPokemon function to show it in the html
 
-    const searchedValueInput = searchBar.value;
+    const searchedValueInput = searchBar.value.toLowerCase();
     // console.log( searchedValueInput );
 
     drawPokemon( await getPokemon( searchedValueInput ) );
